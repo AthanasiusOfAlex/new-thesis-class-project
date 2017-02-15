@@ -1,0 +1,113 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !BIB TS-program = biber
+
+\documentclass{aprathesis}
+
+\university		{Pontifical Regina Apostolorum College}
+\school		{School of Philosophy}
+\title			{\emph{Esse} as \emph{Virtus Essendi}}
+\subtitle		{the Dynamic “Expansion” of \emph{Actus Essendi},
+			Measured by Essence, as the Ontological Foundation
+			of the Good, according to Saint Thomas Aquinas.}
+\professor		{Alain Contat}
+\author		{Louis Melahn, L.C.}
+\studentid		{3327}
+\coursenumber	{FILP2004}
+\coursename	{Thesis for the Licentiate in Philosophy}
+\location		{Rome}
+\date			{April 30, 2014}
+
+\usepackage{hyperxmp}
+
+\hypersetup{
+  pdftitle={Esse as Virtus Essendi},
+  pdfauthor={Louis Melahn},
+  pdfsubject={The metaphysics of action in the light of an intensive
+              actus essendi},
+  pdfkeywords={esse, actus essendi, virtus essendi, metaphysics,
+               Thomas Aquinas, Fabro, agere, operari, intensive},
+  pdfcopyright={Copyright (c) 2014, 2017 by Louis Melahn. This work is licensed
+                under the Creative Commons Attribution-NoDerivatives 4.0
+                International License. To view a copy of this license, visit
+                http://creativecommons.org/licenses/by-nd/4.0/.},
+  pdflicenseurl={http://creativecommons.org/licenses/by-nd/4.0/}
+}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\makepagestyle{normal}
+\makeevenhead{normal}{}{}{\thepage}
+\makeoddhead{normal}{}{}{\thepage}
+  
+\makeatother
+
+\setdefaultlanguage[variant=us]{english}
+\setotherlanguage[variant=ancient]{greek}
+
+% Work around old Greek commands
+\NewEnviron{greekQuotation}{\begin{quotation}\BODY\end{quotation}}
+\NewEnviron{greekQuote}{\begin{quote}\BODY\end{quote}}
+\newcommand\gk[1]{#1}
+
+% Makes sure no notes appear.
+\NewEnviron{NOTES}{}
+\NewEnviron{DONE}{}
+
+%\NewEnviron{onehalfspacing}{\BODY}
+
+% Makes “letters” appear as “numbers” for citations.
+\DeclareNumChars{ABCDE}
+\addbibresource{licentiate_thesis.bib}
+
+% The following command makes it so that, if a bibliographic entry includes the pages
+% (because it is part of a larger work), those pages are suppressed. This is useful when
+% you are citing a classical work, and all you want in the footnote are the pages relevant
+% to the actual citation (but the pages for the entire work are needed in the bibliography).
+\newcommand*\suppressPagesNextCite{\AtNextCitekey{\clearfield{pages}}}
+
+%%TODO:
+  % [DONE] Fix citations, so that they display the names as "F. Lastname"
+  %   (Right now, the entire first name is displayed.)
+  % [ALMOST—Right now, looks good] See if I have forgotten to import any bibliography commands.
+  % [DONE] Remove bibliography subsections from TOC
+  % [DONE] Change monospaced font to proportional.
+  % Convert "greekQuotation" environments to regular quotation environments.
+  % Remove \gk commands
+  % Convert `` and '' ligatures, as well as -- and ---, to unicode.
+  % Chapter titles should be all caps.
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+\pagestyle{normal}
+
+\tableofcontents
+
+\mainmatter
+
+\input{tex/chapter-01}
+\input{tex/chapter-02}
+\input{tex/chapter-03}
+\input{tex/chapter-04}
+\input{tex/chapter-05}
+
+Foo.\autocite{pg:dionysius:DN} Bar\autocite{aertsen:transcendentals}
+
+\backmatter
+
+\printbibheading[heading=bibintoc,title={Bibliography}]  %Adds heading to TOC.
+\printbibliography[keyword=primary,heading=subbibliography,%
+title={Primary Sources}]
+\printbibliography[keyword=direct,heading=subbibliography,%
+title={Sources of Direct Interest}]
+\printbibliography[notkeyword=encyclopedia, notkeyword=direct,%
+notkeyword=primary, heading=subbibliography,%
+title={Other Studies}]
+\printbibliography[keyword=encyclopedia,heading=subbibliography,%
+title={Encyclopedic Sources}]
+
+\end{document}

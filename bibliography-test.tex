@@ -1,0 +1,60 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !BIB TS-program = biber
+	
+\documentclass{memoir}
+
+\usepackage{standalone}
+\usepackage{filecontents}
+\usepackage[style=verbose-ibid]{biblatex}
+
+\begin{filecontents}{test.bib}
+
+@bookinbook{pg:dionysius:DN,
+  keywords    = {primary},
+  booktitle   = {Patrologia Graeca},
+  author      = {{Pseudo-Dionysius the Areopagite}},
+  shortauthor = {{Pseudo-Dionysius}},
+  sortname    = {{Pseudo-Dionysius the Areopagite}},
+  title       = {De divinis nominibus},
+  shorttitle  = {De divin.\ nom.},
+  editor      = {Balthasar Cordier},
+  volume      = {3},  
+  year        = {1857},
+}
+@Book{aertsen:transcendentals,
+  keywords   = {direct},
+  title      = {Medieval Philosophy and the Transcendentals},
+  author     = {Jan Aertsen},
+  publisher  = {E.J. Brill},
+  location   = {Leiden},
+  year       = {1996},
+}
+
+\end{filecontents}
+
+\addbibresource{test.bib}
+
+\begin{document}
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{The First Chapter}
+
+Foo.\autocite{pg:dionysius:DN} Bar\autocite{aertsen:transcendentals}
+
+\backmatter
+
+\nobibintoc
+
+\printbibheading[heading=bibintoc,title={Bibliography}]  %Adds heading to TOC.
+\printbibliography[keyword=primary,heading=subbibintoc,%
+title={Primary Sources}]
+\printbibliography[keyword=direct,heading=subbibliography,%
+title={Sources of Direct Interest}]
+
+\end{document}
