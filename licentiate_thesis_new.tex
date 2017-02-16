@@ -2,7 +2,7 @@
 % !TEX encoding = UTF-8 Unicode
 % !BIB TS-program = biber
 
-\documentclass{aprathesis}
+\documentclass[article]{aprathesis}
 
 \university		{Pontifical Regina Apostolorum College}
 \school		{School of Philosophy}
@@ -65,20 +65,23 @@
 % (because it is part of a larger work), those pages are suppressed. This is useful when
 % you are citing a classical work, and all you want in the footnote are the pages relevant
 % to the actual citation (but the pages for the entire work are needed in the bibliography).
-\newcommand*\suppressPagesNextCite{\AtNextCitekey{\clearfield{pages}}}
+% \newcommand*\suppressPagesNextCite{\AtNextCitekey{\clearfield{pages}}}
 
 %%TODO:
   % [DONE] Fix citations, so that they display the names as "F. Lastname"
   %   (Right now, the entire first name is displayed.)
-  % [ALMOST—Right now, looks good] See if I have forgotten to import any bibliography commands.
+  % [DONE (looks good for now)] See if I have forgotten to import any bibliography commands.
   % [DONE] Remove bibliography subsections from TOC
   % Add periods to bibliography TOC entry.
-  % See if \suppressPagesNextCite can be automated. (See scrapbook.)
+  % [DONE (looks good for now)]See if \suppressPagesNextCite can be automated. (See scrapbook.)
   % [DONE] Change monospaced font to proportional.
-  % Convert "greekQuotation" environments to regular quotation environments.
-  % Remove \gk commands
-  % Convert `` and '' ligatures, as well as -- and ---, to unicode.
-  % Chapter titles should be all caps.
+  % [DONE] Convert "greekQuotation" environments to regular quotation environments.
+  % [DONE] Remove \gk commands
+  % [DONE] Convert `` and '' ligatures, as well as -- and ---, to unicode.
+  % [DONE] Chapter titles should be all caps.
+  % Chapter pages should have normal page numbers (page style).
+
+    %\counterwithout{section}{chapter}
 
 \begin{document}
 

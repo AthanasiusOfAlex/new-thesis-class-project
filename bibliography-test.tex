@@ -2,7 +2,7 @@
 % !TEX encoding = UTF-8 Unicode
 % !BIB TS-program = biber
 	
-\documentclass{memoir}
+\documentclass[article,oneside]{memoir}
 
 \usepackage{standalone}
 \usepackage{filecontents}
@@ -26,7 +26,7 @@
   keywords   = {direct},
   title      = {Medieval Philosophy and the Transcendentals},
   author     = {Jan Aertsen},
-  publisher  = {E.J. Brill},
+  publisher  = {Brill},
   location   = {Leiden},
   year       = {1996},
 }
@@ -34,6 +34,12 @@
 \end{filecontents}
 
 \addbibresource{test.bib}
+
+\setsecnumdepth{subsection}
+
+\usepackage{lipsum}
+
+\nobibintoc
 
 \begin{document}
 
@@ -45,11 +51,19 @@
 
 \chapter{The First Chapter}
 
-Foo.\autocite{pg:dionysius:DN} Bar\autocite{aertsen:transcendentals}
+\lipsum[1]\autocite{pg:dionysius:DN}
+\lipsum[2]\autocite{aertsen:transcendentals}
+
+\section{A Section}
+\lipsum[3-4]
+
+\section{A Section}
+
+\subsection{Subsection}
+
+\lipsum[5]
 
 \backmatter
-
-\nobibintoc
 
 \printbibheading[heading=bibintoc,title={Bibliography}]  %Adds heading to TOC.
 \printbibliography[keyword=primary,heading=subbibintoc,%
